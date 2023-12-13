@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS medshare_db; 
+CREATE DATABASE medshare_db;
