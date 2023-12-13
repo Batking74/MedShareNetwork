@@ -1,0 +1,21 @@
+{{main}}
+
+{{#content}}
+    <section class="Project2">
+        <h1>Welcome to MedShareNetwork</h1>
+        <p>Discover and share medical advancements.</p>
+    </section>
+
+    <section class="featured-posts">
+        <h2>Featured Posts</h2>
+        <ul>
+            {{#each featuredPosts}}
+                <li>
+                    <h3>{{title}}</h3>
+                    <p>{{excerpt}}</p>
+                    <a href="{{url}}">Read more</a>
+                </li>
+            {{/each}}
+        </ul>
+    </section>
+{{/content}}
