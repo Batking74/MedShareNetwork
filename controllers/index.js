@@ -1,11 +1,11 @@
 // Importing Packages
 const router = require('express').Router();
 
-const users = require('./Api/users');
-const posts = require('./Api/posts');
+const apiRoutes = require("./Api")
+const homeRoutes = require('./homeRoutes');
 
 // Routers
-router.use('/Users', users);
-router.use('/Posts', posts);
+router.use('/', homeRoutes);
+router.use('/api', apiRoutes);
 
 module.exports = router;
