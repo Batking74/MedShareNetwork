@@ -5,7 +5,8 @@ const users = require('./Api/users');
 const posts = require('./Api/posts');
 
 // Routers
-router.use('/Users', users);
-router.use('/Posts', posts);
+router.use('/users', users);
+router.use('/posts', posts);
+router.use('/api/user/profile', posts);
 
 module.exports = router;
