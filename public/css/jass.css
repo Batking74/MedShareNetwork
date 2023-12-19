@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --page-width: 80px
+}
+
+main {
+    margin: 0 var(--page-width) 0 var(--page-width);
+}
+
+/* Navigation Styles */
+nav {
+    background: #AFCFED;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0 30px 0;
+}
+
+
+nav h2 {
+    font-weight: bolder;
+    font-size: 30px;
+    font-family: inter;
+    position: relative;
+    left: var(--page-width);
+}
+
+nav span {
+    position: relative;
+    right: var(--page-width);
+}
+
+
+/* Header Styles */
+header {
+    display: grid;
+    grid-template: repeat(2, 120px) / repeat(2, 500px);
+    justify-content: center;
+    column-gap: 300px;
+}
+
+
+header h1 {
+    font-size: 40px;
+    font-family: 'Inria Serif';
+}
+
+
+header div {
+
+}
+
+
+header h2 {
+
+}
