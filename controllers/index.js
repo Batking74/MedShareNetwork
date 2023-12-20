@@ -2,6 +2,7 @@
 const homeRoutes = require('./homeRoutes');
 const router = require('express').Router();
 const apiRoutes = require("./Api")
+const users = require("./Api/userRoutes");
 
 
 // Routers
