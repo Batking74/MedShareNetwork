@@ -9,6 +9,7 @@ Posts.init(
             type: DataTypes.INTEGER,
             allowNull: false, 
             autoIncrement: true,
+            primaryKey: true
         },
         userID: {
             type: DataTypes.INTEGER,
