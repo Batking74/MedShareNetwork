@@ -8,25 +8,33 @@
     <link rel="stylesheet" href="/MedShareNetwork/public/css/style.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="flex-column justify-space-around">
+        <header class="display-flex justify-space-between align-center p-2">
+            <h1>
+                <a href="/">MedShareNetwork</a>
+            </h1>
+            <nav>
+                <!-- Conditionally render login or logout links -->
+                {{#if logged_in}}
+                <a href="/profile">Profile</a> |
+                <button class="no-button" id="logout">Logout</button>
+                {{else}}
+                <a href="/login">Login</a>
+                {{/if}}
+            </nav>
+        </header>
+        <main class="container container-fluid mt-5">
+            <!-- Render the sub layout -->
+            {{{ body }}}
+        </main>
+        <footer>
+            &copy; 2023 MedShareNetwork
+        </footer>
+    </div>
 
-    <main>
-        
-        <h1>Welcome to MedShareNetwork</h1>
-        <p>Discover and share medical Advancements.</p>
-    </main>
-
-    <footer>
-      
-        &copy; 2023 MedShareNetwork
-    </footer>
+    <!-- Render script for logged in users only -->
+    {{#if logged_in}}
+    <script src="/MedShareNetwork/public/js/logout.js"></script>
+    {{/if}}
 </body>
 </html>
