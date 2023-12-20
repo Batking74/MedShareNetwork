@@ -1,0 +1,415 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+
+
+  /* Add some styles to hide the login mini-page initially */
+  #loginMiniPage {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Declaring and Initializing Variables */
+:root {
+    --page-width: 80px
+}
+
+
+body {
+    background-color: #2fe6e6;
+}
+
+
+/* Main */
+main {
+    margin: 0 var(--page-width) 0 var(--page-width);
+    background: #fff;
+    padding: 60px 60px 200px 60px;
+}
+
+
+/* Navigation Styles */
+nav {
+    background: #000;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0 30px 0;
+}
+
+
+nav h2 {
+    font-weight: bolder;
+    text-shadow: 2px 3px 3px;
+    font-size: 30px;
+    color: #AFCFED;
+    font-weight: lighter;
+    font-family: inter;
+    position: relative;
+    left: var(--page-width);
+}
+
+
+/* Button Container */
+nav span {
+    position: relative;
+    right: var(--page-width);
+}
+
+
+/* Buttons */
+nav span button {
+    background: #000;
+    border-color: #AFCFED;
+    color: #fff;
+    color: #fff;
+    padding: 5px 15px 5px 15px;
+    border-radius: 40px;
+}
+
+
+/* Header Styles */
+header {
+    display: grid;
+    width: 100%;
+    height: 14vmax;
+    grid-template: repeat(2, 120px) / repeat(2, calc(23vw - var(--page-width)));
+    column-gap: 45.25vw;
+    margin-top: 30px;
+}
+
+
+/* Title */
+header h1 {
+    font-size: 40px;
+    font-family: 'Inria Serif';
+    width: 40vw;
+}
+
+
+/* First div */
+header div {
+    width: fit-content;
+}
+
+
+/* Creators Name, Date, and Image Heading Container */
+header div div {
+    width: fit-content;
+    display: flex;
+    align-items: end;
+    column-gap: 10px;
+}
+
+
+/* Creators Image */
+header div div img {
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    object-fit: cover;
+}
+
+
+/* Creators Name and Date Heading Container */
+header div div div {
+    display: grid;
+    width: fit-content;
+    max-width: 100%;
+}
+
+
+/* Creators Name and Date Heading */
+header div div div h2, header div div div p {
+    display: grid;
+    width: fit-content;
+    max-width: 100%;
+}
+
+
+/* Subtitle in Header */
+header h2 {
+    font-family: 'Inria Serif';
+    font-weight: lighter;
+    width: calc(var(--page-width) + 40vw);
+    height: fit-content;
+}
+
+
+/* Info Section */
+.info-section {
+    display: grid;
+}
+
+
+/* Image Container */
+.info-section-images {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    margin-top: calc((var(--page-width) - 70px) + 10px);
+}
+
+
+/* Images */
+.info-section-images img {
+    width: 25vw;
+}
+
+
+/* Paragraph Container */
+.info-section-paragraphs {
+    display: flex;
+    justify-content: space-around;
+    column-gap: 100px;
+}
+
+
+/* Paragraph */
+.info-section-paragraphs {
+    margin: 20px 100px 0 100px;
+    line-height: 30px;
+    font-family: Jacques Francois;
+}
+
+
+/* Deep Dive Section 1 */
+.deep-dive-section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 150px;
+    font-family: Jacques Francois;
+}
+
+
+/* image */
+.deep-dive-section img, .deep-dive-section h2, .deep-dive-section hr {
+    margin-bottom: 20px;
+}
+
+
+/* image */
+.deep-dive-section img {
+    width: 70vw;
+    margin: 0 auto 20px auto;
+}
+
+
+/* Deep Dive Paragraph */
+.deep-dive-section p {
+    line-height: 30px;
+}
+
+
+/* Start of Posting Section */
+.posts-container {
+    font-family: 'Javanese Text';
+}
+
+
+/* Heading */
+.posts-container-heading {
+    margin-top: 100px;
+}
+
+
+/* Input Container */
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+
+/* Input and Textarea */
+.input-container input, .input-container textarea {
+    width: calc(40vw + var(--page-width) + 10vw);
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 20px;
+    font-size: large;
+    padding: 10px;
+    resize: vertical;
+}
+
+
+.input-container input:focus, .input-container textarea:focus {
+    outline: none;
+}
+
+
+/* Posts stylings */
+.posts {
+    margin-top: 30px;
+}
+
+
+/* Footer */
+footer {
+    text-align: center;
+    background: #000;
+    color: #AFCFED;
+    padding: 20px;
+    font-size: large;
+    font-family: Jacques Francois;
+}
+
+
+/* Responsive Web Design */
+@media screen and (max-width: 1055px) {
+    /* Image Container */
+    .info-section-images {
+        margin-top: calc((var(--page-width) - 70px) + 50px);
+    }
+}
+
+@media screen and (max-width: 1040px) {
+    /* Header Styles */
+    header {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        grid-template: repeat(4, 120px) / repeat(1, calc(35.75vw - var(--page-width)));
+    }
+    
+    
+    /* Title */
+    header h1 {
+        width: 60vw;
+        font-size: 35px;
+        margin-bottom: 30px;
+    }
+    
+    
+    /* Creators Name, Date, and Image Heading Container */
+    header div div {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    
+    
+    /* Creators Image */
+    header div div img {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 10px;
+    }
+    
+    
+    /* Image Container */
+    .info-section-images {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 50px;
+        margin-top: calc((var(--page-width) - 70px) + 400px);
+    }
+    
+    
+    /* Images */
+    .info-section-images img {
+        width: 60vw;
+    }
+
+    /* Paragraph Container */
+    .info-section-paragraphs {
+        flex-direction: column;
+        row-gap: 100px;
+    }
+
+
+    .deep-dive-section h2 {
+        text-align: center;
+    }
+}
+
+
+@media screen and (max-width: 630px) {
+    /* Main */
+    main {
+        margin: 0 calc(var(--page-width) - 50px) 0 calc(var(--page-width) - 50px);
+        background: #fff;
+        padding: 60px 60px 200px 60px;
+    }
+
+
+    /* Navigation Styles */
+    nav {
+        /* background: #AFCFED; */
+        background: #000;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    nav h2 {
+        font-weight: lighter;
+        color: #AFCFED;
+        margin-bottom: 10px;
+        position: initial;
+    }
+
+
+    /* Button Container */
+    nav span {
+        position: initial;
+    }
+
+
+    /* Buttons */
+    nav span button {
+        background: #000;
+        border-color: #AFCFED;
+        color: #fff;
+        padding: 5px 15px 5px 15px;
+        border-radius: 40px;
+    }
+
+
+    .create-post-btn {
+        position: fixed;
+        top: 550px;
+        right: 40px;
+        width: 70px;
+        height: 70px;
+        border-radius: 100px;
+    }
+}

@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const email = emailInput.value;
         const password = passwordInput.value;
 
-        // Validate the inputs (e.g., check for empty fields)
+        // Basic login form validation
 
         fetch('/login', {
             method: 'POST',
