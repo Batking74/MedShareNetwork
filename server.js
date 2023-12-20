@@ -4,8 +4,8 @@ const routes = require('./controllers/index');
 const session = require('express-session');
 const express = require('express');
 const path = require('path');
-const app = express();
 require('dotenv').config();
+const app = express();
 
 const PORT = process.env.JAWS_DB || 3001;
 const bars = handlebars.create();
