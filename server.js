@@ -6,7 +6,6 @@ const session = require('express-session');
 const express = require('express');
 const bars = handlebars.create({ defaultLayout: 'main' });
 const path = require('path');
-require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -25,7 +24,6 @@ const sess = {
     db: sequelize,
     }),
 };
-
 
   // Middleware
 app.use(express.static(path.join(__dirname, 'public')));
