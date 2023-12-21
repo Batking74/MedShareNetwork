@@ -1,9 +1,11 @@
+// Importing Modules/Packages
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Post extends Model {}
 
-Post.init(
+// Creating Posts Table
+class Posts extends Model {}
+Posts.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -13,6 +15,7 @@ Post.init(
         },
         userID: {
             type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
                 model: "User",
                 key: "id",
@@ -36,4 +39,6 @@ Post.init(
     }
 );
 
-module.exports = Post;
+
+// Exporting Module
+module.exports = Posts;

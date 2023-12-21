@@ -1,51 +1,44 @@
 // Importing packages
+const handlebars = require('express-handlebars');
+const sequelize = require('./config/connection');
 const routes = require('./controllers/index');
 const session = require('express-session');
 const express = require('express');
+const bars = handlebars.create({ defaultLayout: 'main' });
 const path = require('path');
 const app = express();
-const exphbs = require('express-handlebars');
-const hbs = exphbs.create({});
+const PORT = process.env.PORT || 5000;
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 
-
-const sequelize = require("./config/connection");
-const SequelizeStore = require("connect-session-sequelize")(session.Store);
-
-const PORT = process.env.PORT || 3001;
-
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
-
-
-
-app.set('view-engine', 'handlebars');
-
+// Set up sessions with cookies
 const sess = {
-    secret: '...',
+    secret: 'Super secret secret',
     cookie: {
-      maxAge: 300000,
-      httpOnly: true,
-      secure: false,
-      sameSite: 'strict',
+      // Stored in milliseconds
+      maxAge: 24 * 60 * 60 * 1000, // expires after 1 day
     },
     resave: false,
     saveUninitialized: true,
     store: new SequelizeStore({
-      db: sequelize
-    })
-  };
+    db: sequelize,
+    }),
+};
 
-app.use(session(sess))
-// Middleware
+  // Middleware
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
+app.set('views', path.join(__dirname, 'views'));
+app.engine('handlebars', bars.engine);
+app.set('view engine', 'handlebars');
+app.use(session(sess));
 app.use(routes);
 
 
 // Starting up SQL Server
 sequelize.sync({ force : false }).then(() => {
-    app.listen(PORT, () => console.log(`Listening on port ${PORT}`))
-});
+    app.listen(PORT, () => {
+        console.log(`Listening on port ${PORT}`);
+    })
+})

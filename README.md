@@ -3,6 +3,7 @@
 ## Description
 MedShareNetwork is a purpose-driven app addressing limited community healthcare engagement. By seamlessly connecting the medical community, providing a space for professionals and learners to chat, our platform ensures impactful contributions and meaningful collaboration. Join us in fostering a more connected and empowered healthcare community.
 
+![Image of MedShareNetwork project](./MedShareNetwork.webp)
 
 ## Questions
 - What was our motivation? MedShareNetwork was motivated by a belief in the power of small acts to create positive change in healthcare.

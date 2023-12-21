@@ -1,15 +1,14 @@
 // Importing Packages
-const homeRoutes = require('./homeRoutes');
 const router = require('express').Router();
-const apiRoutes = require("./Api")
+const posts = require('./Api/postsRoutes');
 const users = require("./Api/userRoutes");
+const home = require("./Api/homeRoutes");
 
 
-// Routers
+// Middleware
 router.use('/users', users);
 router.use('/posts', posts);
-router.use('/', homeRoutes);
-router.use('/api', apiRoutes);
+router.use('/', home);
 
 
 // Exporting Modules

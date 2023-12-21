@@ -1,26 +1,31 @@
+// Importing Packages
+const sequelize = require("../config/connection");
 const { Model, DataTypes} = require("sequelize");
 const bcrypt = require("bcrypt");
-const sequelize = require("../config/connection");
 
-class User extends Model {
-    checkPassword(loginPw) {
-        return bcrypt.compareSync(loginPw, this.password);
+
+// Creating User Table
+class Users extends Model {
+    async checkPassword(loginPw) {
+        // Compare the hashed input with the stored hashed password
+        return bcrypt.compareSync(loginPw, this.Password);
     }
 }
-
-User.init(
+Users.init(
     {
+        // Table Columns
         id: {
+            // Column Attributes
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
         },
-        name: {
+        Username: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        email: {
+        Email: {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
@@ -28,7 +33,7 @@ User.init(
                 isEmail: true,
             },
         },
-        password: {
+        Password: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -39,11 +44,11 @@ User.init(
     {
     hooks: {
         beforeCreate: async (newUserData) => {
-            newUserData.password = await bcrypt.hash(newUserData.password, 10);
+            newUserData.Password = await bcrypt.hash(newUserData.Password, 10);
             return newUserData;
         },
         beforeUpdate: async (updatedUserData) => {
-            updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+            updatedUserData.Password = await bcrypt.hash(updatedUserData.Password, 10);
             return updatedUserData;
         },
         },
@@ -55,4 +60,6 @@ User.init(
     }
 );
 
-module.exports = User;
+
+// Exporting Module
+module.exports = Users;
