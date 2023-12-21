@@ -39,4 +39,5 @@ Through this project, we realized that even small efforts can bring about meanin
 - Sequelize
 
 Deployed Site: https://medsharenetwork-3691a9c0e268.herokuapp.com/
+
 GitHub: https://github.com/Batking74
