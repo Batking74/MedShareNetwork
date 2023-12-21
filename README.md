@@ -15,8 +15,6 @@ MedShareNetwork is a purpose-driven app addressing limited community healthcare 
 - What did we learn? 
 Through this project, we realized that even small efforts can bring about meaningful change, highlighting the power and importance of collaboration in developing FullStack Applications.
 
-GitHub: https://github.com/Batking74
-
 
 ## License
 ### Notice: MIT
@@ -39,3 +37,6 @@ GitHub: https://github.com/Batking74
 - express-handlebars
 - express-session
 - Sequelize
+
+Deployed Site: https://medsharenetwork-3691a9c0e268.herokuapp.com/
+GitHub: https://github.com/Batking74
