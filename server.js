@@ -7,13 +7,14 @@ const express = require('express');
 const bars = handlebars.create({ defaultLayout: 'main' });
 const path = require('path');
 const app = express();
+require('dotenv').config();
 const PORT = process.env.PORT || 5000;
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 
 // Set up sessions with cookies
 const sess = {
-    secret: 'Super secret secret',
+    secret: process.env.SECRET_KEY,
     cookie: {
       // Stored in milliseconds
       maxAge: 24 * 60 * 60 * 1000, // expires after 1 day
