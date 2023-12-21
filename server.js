@@ -44,5 +44,3 @@ sequelize.sync({ force : false }).then(() => {
         console.log(`Listening on port ${PORT}`);
     })
 })
-
-console.log('heyy')
