@@ -47,6 +47,7 @@ nav h2 {
 
 /* Button Container */
 nav span {
+    display: flex;
     position: relative;
     right: var(--page-width);
 }
@@ -60,6 +61,15 @@ nav span button {
     color: #fff;
     padding: 5px 15px 5px 15px;
     border-radius: 40px;
+}
+
+
+nav span button:hover {
+    cursor: pointer;
+}
+
+nav span button:active {
+    cursor: grab;
 }
 
 
@@ -323,7 +333,13 @@ footer {
         margin-bottom: 10px;
     }
     
+
+    /* Info Section */
+    .info-section {
+        align-items: center;
+    }
     
+
     /* Image Container */
     .info-section-images {
         flex-direction: column;
@@ -342,6 +358,14 @@ footer {
     .info-section-paragraphs {
         flex-direction: column;
         row-gap: 100px;
+        column-gap: 0;
+    }
+    
+    /* Paragraphs */
+    .info-section-paragraphs {
+        flex-direction: column;
+        row-gap: 100px;
+        column-gap: 0;
     }
 
 
@@ -351,7 +375,7 @@ footer {
 }
 
 
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 730px) {
     /* Main */
     main {
         margin: 0 calc(var(--page-width) - 50px) 0 calc(var(--page-width) - 50px);
@@ -400,5 +424,67 @@ footer {
         width: 70px;
         height: 70px;
         border-radius: 100px;
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+    /* Main */
+    main {
+        margin: 0 calc(var(--page-width) - 65px) 0 calc(var(--page-width) - 65px);
+        background: #fff;
+        padding: 60px 60px 200px 60px;
+    }
+
+
+    /* Navigation Styles */
+    nav {
+        /* background: #AFCFED; */
+        background: #000;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    nav h2 {
+        font-weight: lighter;
+        color: #AFCFED;
+        margin-bottom: 10px;
+        position: initial;
+    }
+
+
+    /* Button Container */
+    nav span {
+        position: initial;
+    }
+
+
+    /* Buttons */
+    nav span button {
+        background: #000;
+        border-color: #AFCFED;
+        color: #fff;
+        padding: 5px 15px 5px 15px;
+        border-radius: 40px;
+    }
+
+
+    /* Title */
+    header h1 {
+        width: 65vw;
+        font-size: 35px;
+        margin-bottom: 30px;
+    }
+
+    /* Image Container */
+    .info-section-images {
+        margin-top: calc((var(--page-width) - 70px) + 500px);
+    }
+    
+
+    /* Create Post Button */
+    .create-post-btn {
+        top: 550px;
     }
 }
