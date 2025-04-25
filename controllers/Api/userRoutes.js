@@ -2,7 +2,7 @@
 const { isAuthenticated, isAuthorizedForProfile } = require('../../helpers/auth');
 const { displayError } = require('../../helpers/helper');
 const users = require('express').Router();
-const { User } = require("../../models");
+const { Users } = require("../../models");
 
 
 // Serves up user profiles
@@ -23,7 +23,7 @@ users.post('/createAccount', async (req,res) => {
     else if(data.Email === '') res.status(400).json('Email is Required!');
     else if(data.Password === '') res.status(400).json('Password is Required!');
     try {
-        const userData = await User.create(data);
+        const userData = await Users.create(data);
         const userRes = { user: userData, message: "Account Created!" };
         // Logging in the user by storing their ID in the session
         req.session.UserId = userData.id;
@@ -42,7 +42,7 @@ users.post("/login", async (req, res) => {
     let correctPassword;
     try {
         // Checking to see if email exists in database
-        const userData = await User.findOne({ where: { email: data.email } });
+        const userData = await Users.findOne({ where: { email: data.email } });
         if(!userData) {
             res.status(400).json({ message: "Incorrect Email!" });
             return;

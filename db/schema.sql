@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS medsharedb; 
+DROP DATABASE IF EXISTS medsharenetwork; 
 CREATE DATABASE medsharenetwork;

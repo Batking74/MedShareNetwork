@@ -1,17 +1,17 @@
 // Importing Modules/Packages
 const posts = require('express').Router();
-const { Post, User } = require("../../models");
+const { Posts, Users } = require("../../models");
 
 
 // Gets all Users Posts from database
 posts.get("/", async (req, res) => {
     try {
-        const data = await Post.findAll({
+        const data = await Posts.findAll({
             attributes: ['Title', 'Body'],
-            include: [{ model: User, attributes: ['username'] }]
+            include: [{ model: Users, attributes: ['username'] }]
         });
         const posts = data.map((post) => post.get({ plain: true }));
-        for(let post of posts) post.user = post.user.username;
+        for(let post of posts) post.User = post.User.username;
         res.json(posts);
     }
     catch (error) {
@@ -34,14 +34,14 @@ posts.post("/createPost", async (req, res) => {
     }
     try {
         // Create New Post in Database
-        const newPost = await Post.create({
+        const newPost = await Posts.create({
             Title: data.title,
             Body: data.message,
             userID: req.session.UserID
         });
 
         // Get the users name
-        const user = await User.findOne({
+        const user = await Users.findOne({
             where: {
                 id: req.session.UserID
             }

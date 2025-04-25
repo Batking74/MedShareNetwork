@@ -14,19 +14,19 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // Set up sessions with cookies
 const sess = {
-    secret: process.env.SECRET_KEY,
-    cookie: {
-      // Stored in milliseconds
-      maxAge: 24 * 60 * 60 * 1000, // expires after 1 day
-    },
-    resave: false,
-    saveUninitialized: true,
-    store: new SequelizeStore({
+  secret: process.env.SECRET_KEY,
+  cookie: {
+    // Stored in milliseconds
+    maxAge: 24 * 60 * 60 * 1000, // expires after 1 day
+  },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
     db: sequelize,
-    }),
+  }),
 };
 
-  // Middleware
+// Middleware
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -37,9 +37,31 @@ app.use(session(sess));
 app.use(routes);
 
 
-// Starting up SQL Server
-sequelize.sync({ force : false }).then(() => {
-    app.listen(PORT, () => {
-        console.log(`Listening on port ${PORT}`);
-    })
-})
+const waitForDB = async () => {
+  const maxRetries = 10;
+  let retries = 0;
+  while (retries < maxRetries) {
+    try {
+      // Waiting for database to be running
+      await sequelize.authenticate();
+      console.log("✅ Database connected successfully. ✅");
+
+      // Starting up MySQL Server
+      sequelize.sync({ force: false }).then(() => {
+        // Starting up Backend Node Server
+        app.listen(PORT, () => {
+          console.log(`Listening on port ${PORT}`);
+        });
+      });
+      return;
+    }
+    catch (err) {
+      console.log('⏳ Waiting for DB to be ready...');
+      retries++;
+      await new Promise(res => setTimeout(res, 3000));
+    }
+  }
+  console.error('❌ Could not connect to database. Exiting.');
+};
+
+waitForDB();

@@ -1,19 +1,19 @@
 // Importing Modules
-const User = require("./User");
-const Post = require("./Posts");
+const Users = require("./User");
+const Posts = require("./Posts");
 
 
 // Defining an association where users can have many Posts
-User.hasMany(Post, {
+Users.hasMany(Posts, {
     foreignKey: "userID",
 });
 
 
 // Defining a corresponding association where a Post belongs to a User
-Post.belongsTo(User, {
+Posts.belongsTo(Users, {
     foreignKey: "userID"
 });
 
 
 // Exporting Modules
-module.exports = { User, Post };
+module.exports = { Users, Posts };
