@@ -4,6 +4,7 @@ require('dotenv').config();
 let sequelize = getDatabase();
 
 
+
 // Returns Database
 function getDatabase() {
   try {
@@ -20,7 +21,7 @@ function getDatabase() {
         port: 3306
       });
   }
-  catch(error) {
+  catch (error) {
     console.log(error);
   }
 }
