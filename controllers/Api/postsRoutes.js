@@ -11,7 +11,7 @@ posts.get("/", async (req, res) => {
             include: [{ model: Users, attributes: ['username'] }]
         });
         const posts = data.map((post) => post.get({ plain: true }));
-        for(let post of posts) post.User = post.User.username;
+        for (let post of posts) post.User = post.User.username;
         res.json(posts);
     }
     catch (error) {
@@ -24,11 +24,12 @@ posts.get("/", async (req, res) => {
 posts.post("/createPost", async (req, res) => {
     // Data Sanitation
     const data = req.body;
-    if(data.title === '') {
+    console.log(data)
+    if (data.title === '') {
         res.status(400).json('Title is required!');
         return;
     }
-    else if(data.message === '') {
+    else if (data.message === '') {
         res.status(400).json('Post message is required!');
         return;
     }
@@ -48,8 +49,7 @@ posts.post("/createPost", async (req, res) => {
         })
 
         // Add users name to object
-        newPost.dataValues.user = user.dataValues.Username
-        
+        newPost.dataValues.User = user.dataValues.Username
         res.status(200).json(newPost);
     }
     catch (error) {

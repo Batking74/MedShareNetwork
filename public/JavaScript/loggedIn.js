@@ -63,14 +63,15 @@ logoutBtn.addEventListener('click', async () => {
 createPostBtn.addEventListener('click', async () => {
     try {
         const postData = {
-            title: usersTopic.value,
-            message: usersMessage.value
+            title: usersTopic.value.trim(),
+            message: usersMessage.value.trim()
         }
         usersTopic.value = '';
         usersMessage.value = '';
         const response = (await fetch('/posts/createPost', getOptions(postData))).json();
         const data = await response;
-        displayPost(data);
+        if(typeof data === 'object') displayPost(data);
+        else alert(data)
     }
     catch(error) {
         displayError('createPostBtn.addEventListener', error);

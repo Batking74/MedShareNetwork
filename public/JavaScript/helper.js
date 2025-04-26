@@ -56,6 +56,6 @@ export function displayPost(post) {
     // Set Element Values
     title.textContent = post.Title;
     message.textContent = post.Body;
-    name.textContent = post.user;
+    name.textContent = post.User;
     postContainer.append(newPost);
 }
