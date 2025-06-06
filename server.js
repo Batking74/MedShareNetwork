@@ -8,7 +8,7 @@ const bars = handlebars.create({ defaultLayout: 'main' });
 const path = require('path');
 const app = express();
 require('dotenv').config();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 1000;
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 
