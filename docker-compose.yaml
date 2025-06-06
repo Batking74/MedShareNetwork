@@ -3,8 +3,8 @@ services:
   backend:
     build: .
     container_name: MedShareNetwork-Production
-    # depends_on:
-    #   - database
+    networks:
+      - my-shared-network
     ports:
       - '1000:1000'
     environment:
@@ -12,6 +12,8 @@ services:
       - DB_NAME=${DB_NAME}
       - DB_USER=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
+    # depends_on:
+    #   - database
   # database:
   #   image: mysql:latest
   #   container_name: MedShareNetwork-Database-Test
@@ -20,3 +22,6 @@ services:
   #   environment:
   #     - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
   #     - MYSQL_DATABASE=${DB_NAME}
+networks:
+  my-shared-network:
+    external: true
