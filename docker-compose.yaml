@@ -6,7 +6,7 @@ services:
     networks:
       - my-shared-network
     ports:
-      - '1000:1000'
+      - '5000:5000'
     environment:
       - SECRET_KEY=${SECRET_KEY} # Example of passing environment variables
       - DB_NAME=${DB_NAME}
