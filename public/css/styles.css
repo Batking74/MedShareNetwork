@@ -49,6 +49,7 @@ nav h2 {
 nav span {
     display: flex;
     position: relative;
+    column-gap: 10px;
     right: var(--page-width);
 }
 
@@ -155,7 +156,8 @@ header div div div {
 
 
 /* Creators Name and Date Heading */
-header div div div h2, header div div div p {
+header div div div h2,
+header div div div p {
     display: grid;
     width: fit-content;
     max-width: 100%;
@@ -197,16 +199,17 @@ header h2 {
     display: flex;
     justify-content: space-around;
     column-gap: 100px;
-}
-
-
-/* Paragraph */
-.info-section-paragraphs {
     margin: 20px 100px 0 100px;
     line-height: 30px;
-    font-family: Jacques Francois;
+    font-family: "Poppins", sans-serif;
 }
 
+@media screen and (max-width: 1040px) {
+    .info-section-paragraphs {
+        margin: 20px 0 0 0;
+
+    }
+}
 
 /* Deep Dive Section 1 */
 .deep-dive-section {
@@ -214,26 +217,29 @@ header h2 {
     justify-content: center;
     flex-direction: column;
     margin-top: 150px;
-    font-family: Jacques Francois;
+    font-family: "Poppins", sans-serif;
 }
 
 
 /* image */
-.deep-dive-section img, .deep-dive-section h2, .deep-dive-section hr {
+.deep-dive-section img,
+.deep-dive-section h2,
+.deep-dive-section hr {
     margin-bottom: 20px;
 }
 
 
 /* image */
 .deep-dive-section img {
-    width: 70vw;
-    margin: 0 auto 20px auto;
+    /* width: 70vw;
+    margin: 0 auto 20px auto; */
 }
 
 
 /* Deep Dive Paragraph */
 .deep-dive-section p {
     line-height: 30px;
+    width: 100%;
 }
 
 
@@ -255,11 +261,13 @@ header h2 {
     flex-direction: column;
     align-items: center;
     margin-top: 30px;
+    row-gap: 20px;
 }
 
 
 /* Input and Textarea */
-.input-container input, .input-container textarea {
+.input-container input,
+.input-container textarea {
     width: calc(40vw + var(--page-width) + 10vw);
     font-family: 'Times New Roman', Times, serif;
     line-height: 20px;
@@ -269,7 +277,8 @@ header h2 {
 }
 
 
-.input-container input:focus, .input-container textarea:focus {
+.input-container input:focus,
+.input-container textarea:focus {
     outline: none;
 }
 
@@ -293,6 +302,7 @@ footer {
 
 /* Responsive Web Design */
 @media screen and (max-width: 1055px) {
+
     /* Image Container */
     .info-section-images {
         margin-top: calc((var(--page-width) - 70px) + 50px);
@@ -300,6 +310,7 @@ footer {
 }
 
 @media screen and (max-width: 1040px) {
+
     /* Header Styles */
     header {
         text-align: center;
@@ -308,37 +319,37 @@ footer {
         align-items: center;
         grid-template: repeat(4, 120px) / repeat(1, calc(35.75vw - var(--page-width)));
     }
-    
-    
+
+
     /* Title */
     header h1 {
         width: 60vw;
         font-size: 35px;
         margin-bottom: 30px;
     }
-    
-    
+
+
     /* Creators Name, Date, and Image Heading Container */
     header div div {
         flex-direction: column;
         align-items: center;
         margin-bottom: 10px;
     }
-    
-    
+
+
     /* Creators Image */
     header div div img {
         width: 200px;
         height: 200px;
         margin-bottom: 10px;
     }
-    
+
 
     /* Info Section */
     .info-section {
         align-items: center;
     }
-    
+
 
     /* Image Container */
     .info-section-images {
@@ -347,8 +358,8 @@ footer {
         row-gap: 50px;
         margin-top: calc((var(--page-width) - 70px) + 400px);
     }
-    
-    
+
+
     /* Images */
     .info-section-images img {
         width: 60vw;
@@ -360,7 +371,7 @@ footer {
         row-gap: 100px;
         column-gap: 0;
     }
-    
+
     /* Paragraphs */
     .info-section-paragraphs {
         flex-direction: column;
@@ -376,6 +387,7 @@ footer {
 
 
 @media screen and (max-width: 730px) {
+
     /* Main */
     main {
         margin: 0 calc(var(--page-width) - 50px) 0 calc(var(--page-width) - 50px);
@@ -429,6 +441,7 @@ footer {
 
 
 @media screen and (max-width: 700px) {
+
     /* Main */
     main {
         margin: 0 calc(var(--page-width) - 65px) 0 calc(var(--page-width) - 65px);
@@ -481,10 +494,16 @@ footer {
     .info-section-images {
         margin-top: calc((var(--page-width) - 70px) + 500px);
     }
-    
+
 
     /* Create Post Button */
     .create-post-btn {
         top: 550px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .deep-dive-section h2 {
+        font-size: 1rem;
     }
 }
