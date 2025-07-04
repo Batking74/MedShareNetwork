@@ -1,4 +1,13 @@
-package-lock.json
-node_modules
+.git
+.vscode
 .env.me
-.env
+README.md
+Dockerfile
+.gitignore
+.env.vault
+node_modules
+.env.previous
+.dockerignore
+package-lock.json
+docker-compose.yaml
+MedShareNetwork.webp

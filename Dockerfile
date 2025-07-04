@@ -1,7 +1,5 @@
-FROM node:lts-alpine3.21
+FROM node:18.20-alpine
 WORKDIR /app
-COPY package.json .
-RUN npm i
 COPY . .
 EXPOSE 5000
 CMD [ "npm", "start" ]
